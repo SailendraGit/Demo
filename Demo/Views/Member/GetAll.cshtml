@@ -1,0 +1,37 @@
+﻿@model List<Demo.Context.Member>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            Full Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Mobile
+        </th>
+    </tr>
+    @foreach(var item in Model)
+            {
+<tr>
+    <td>
+        @item.FullName
+    </td>
+    <td>
+        @item.Email
+    </td>
+    <td>
+        @item.Mobile
+    </td>
+    <td>
+        <a href="@Url.Action("Index",new {item.MemberId,item.FullName,item.Email,item.Mobile })">Edit</a>
+        <a href="@Url.Action("Delete",new {item.MemberId,item.FullName,item.Email,item.Mobile})" >Delete</a>
+    </td>
+</tr>
+            }
+</table>
